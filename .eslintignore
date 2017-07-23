@@ -1,0 +1,5 @@
+# /node_modules/* and /bower_components/* ignored by default
+
+# Ignore current project files except files of src
+/*
+!src
