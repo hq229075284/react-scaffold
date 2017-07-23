@@ -33,10 +33,12 @@
       }
     ],
     "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true
-      }
-    ]
+      "off"
+    ],
+    "import/no-unresolved": [0],
+    "no-debugger":"warn",
+    "import/extensions":[0],
+    "max-len":[2,150],
+    "react/prop-types":[0]
   }
 }
