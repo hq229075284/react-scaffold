@@ -39,6 +39,11 @@
     "no-debugger":"warn",
     "import/extensions":[0],
     "max-len":[2,150],
-    "react/prop-types":[0]
+    "react/prop-types":[0],
+    "import/prefer-default-export":[0],
+    "global-require":[0],
+    "no-underscore-dangle":[0],
+    "react/prefer-stateless-function":[1],
+    "import/no-webpack-loader-syntax":[1]
   }
 }

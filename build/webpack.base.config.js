@@ -80,12 +80,14 @@ var webpackConfig = {
   },
   resolve: {
     extensions: [
-      '.js', '.jsx', 'vue'
+      '.js', '.jsx', '.vue'
     ],
     alias: {
       components: path.join(__dirname, '../src/components'),
       style: path.join(__dirname, '../src/style'),
       utils: path.join(__dirname, '../src/utils'),
+      reduxs: path.join(__dirname, '../src/reduxs'),
+      pages: path.join(__dirname, '../src/pages'),
     }
   }
 };

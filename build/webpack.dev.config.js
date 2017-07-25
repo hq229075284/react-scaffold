@@ -36,11 +36,12 @@ var devConfig = {
     hot: true,
     inline: true,
     historyApiFallback: true,
+    clientLogLevel: "none",
     overlay: {
-      warning: true,
-      error: true,
+      warnings: false,
+      errors: true,
     },
-    contentBase: path.resolve(__dirname, 'src'),
+    contentBase: path.resolve(__dirname, '../src'),
   },
   devtool: 'source-map',
 };
