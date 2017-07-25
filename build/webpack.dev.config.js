@@ -36,6 +36,7 @@ var devConfig = {
     hot: true,
     inline: true,
     historyApiFallback: true,
+    // 去掉不必要的输出信息
     clientLogLevel: "none",
     overlay: {
       warnings: false,

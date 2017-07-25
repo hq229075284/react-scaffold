@@ -3,3 +3,4 @@
 # Ignore current project files except files of src
 /*
 !src
+#src/router/index.js

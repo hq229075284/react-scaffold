@@ -8,11 +8,11 @@ var webpackConfig = {
   output: {
     path: path.join(__dirname, '../dist'),
     filename: '[name].[hash:7].js',
-    chunkFilename: 'chunks/[name].[hash:7].js'
+    chunkFilename: 'chunks/[name].[chunkhash:7].js'
   },
   module: {
     rules: [
-      {
+      /* {
         test: /\.(js|jsx)$/,
         use: [
           {
@@ -24,7 +24,7 @@ var webpackConfig = {
         ],
         enforce: 'pre',
         include: path.join(__dirname, '../src')
-      }, {
+      }, */ {
         test: /\.(js|jsx)$/,
         use: ['babel'],
         exclude: /node_modules/,

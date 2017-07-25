@@ -1,7 +1,8 @@
 import React from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import {
   Route,
+  withRouter,
   Redirect,
 } from 'react-router-dom';
 
@@ -26,8 +27,11 @@ const route = ({ component: Component, ...rest }) => {
   />);
 };
 
-export default route;
+// export default route;
 // export default connect(
 //   state => ({ config: state.config }),
 // )(route);
+export default withRouter(connect(
+  state => ({ config: state.config }),
+)(route));
 

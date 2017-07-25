@@ -71,7 +71,8 @@ var devConfig = {
         "orientation": "portrait",
         "start_url": "index.html?launcher=true"
       }
-    })
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin()
   ],
   devtool: 'source-map',
 };

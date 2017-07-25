@@ -6,11 +6,23 @@ import {
 import Route from './route';
 import Bundle from './bundle';
 
-const test = require('bundle-loader?lazy!pages/test');
+function asyncLoader(loader) {
+  return props => (<Bundle load={loader}>
+    {Comp => <Comp {...props} />}
+  </Bundle>);
+}
 
-const asyncTest = props => (<Bundle load={test}>
-  {Comp => <Comp {...props} />}
-</Bundle>);
+// 异步组件加载器
+const testloader = require('bundle-loader?lazy&name=test!pages/test');
+/* eslint-disable */
+// const testloader = (cb)=> import(/*webpackChunkName:'myname'*/'pages/test').then(context=>cb(context))
+/* eslint-enable */
+// 异步组件加载
+// const asyncTest = props => (<Bundle load={testloader}>
+//   {Comp => <Comp {...props} />}
+// </Bundle>);
+
+const asyncTest = asyncLoader(testloader);
 
 const Home = () => (
   <div>
