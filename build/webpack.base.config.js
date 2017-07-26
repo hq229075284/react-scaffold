@@ -46,16 +46,17 @@ var webpackConfig = {
         exclude: /(node_modules|bower_components)/,
         use: [
           {
-            loader: 'style-loader'
+            loader: 'style-loader',
+            // options: { sourceMap: true }            
           }, {
-            loader: 'css-loader'
+            loader: 'css-loader',
+            options: { sourceMap: true }            
           }, {
-            loader: 'postcss-loader'
+            loader: 'postcss-loader',
+            options: { sourceMap: true }
           }, {
             loader: 'less-loader',
-            options: {
-              sourceMap: true
-            }
+            options: { sourceMap: true }
           }
         ]
       }, {
