@@ -1,9 +1,9 @@
-import axios from 'axios';
+import axios from 'axios'
 
 // 接口公共前缀
-const baseURL = 'http://localhost:8888/';
+const baseURL = 'http://localhost:1111/'
 // 接口超时限制
-const timeout = '20000';
+const timeout = '20000'
 
 const baseConfig = {
   // `url` is the server URL that will be used for the request
@@ -96,9 +96,9 @@ const baseConfig = {
   // `null` or `undefined`), the promise will be resolved; otherwise, the promise
   // will be rejected.
   validateStatus(status) {
-    return status >= 200 && status < 300; // default
+    return status >= 200 && status < 300 // default
   },
-};
+}
 
 // 链式配置axios的参数
 // export const chainFetchByPost = () => {
@@ -117,31 +117,31 @@ const baseConfig = {
 // };
 
 export const chainFetchByPost = () => {
-  let url;
-  let data;
+  let url
+  let data
   return {
     url(_url) {
-      url = _url;
-      return this;
+      url = _url
+      return this
     },
     sendData(_data) {
-      data = _data;
+      data = _data
       return axios({ ...baseConfig, url, data })
       .then(response => response.data)
-      .catch((e) => { throw new Error(e); });
+      .catch((e) => { throw new Error(e) })
     },
-  };
-};
+  }
+}
 
 // 扩展对象式配置axios的参数
 export const fetchByPost = config => axios({
   ...baseConfig,
   ...config,
-});
+})
 
 
 export const fetchByGet = config => axios({
   ...baseConfig,
   method: 'get',
   ...config,
-});
+})

@@ -1,19 +1,19 @@
-import React from 'react';
+import React from 'react'
 import {
   HashRouter as Router,
   // Route,
-} from 'react-router-dom';
-import Route from './route';
-import Bundle from './bundle';
+} from 'react-router-dom'
+import Route from './route'
+import Bundle from './bundle'
 
 function asyncLoader(loader) {
   return props => (<Bundle load={loader}>
     {Comp => <Comp {...props} />}
-  </Bundle>);
+  </Bundle>)
 }
 
 // 异步组件加载器
-const testloader = require('bundle-loader?lazy&name=test!pages/test');
+const testloader = require('bundle-loader?lazy&name=test!@routerView/test')
 /* eslint-disable */
 // const testloader = (cb)=> import(/*webpackChunkName:'myname'*/'pages/test').then(context=>cb(context))
 /* eslint-enable */
@@ -22,18 +22,18 @@ const testloader = require('bundle-loader?lazy&name=test!pages/test');
 //   {Comp => <Comp {...props} />}
 // </Bundle>);
 
-const asyncTest = asyncLoader(testloader);
+const asyncTest = asyncLoader(testloader)
 
 const Home = () => (
   <div>
     <h2>Home</h2>
   </div>
-);
+)
 
 const getConfirmation = (message, callback) => {
-  const allowTransition = window.confirm(message);
-  callback(allowTransition);
-};
+  const allowTransition = window.confirm(message)
+  callback(allowTransition)
+}
 
 const routerMap = () => (
   <Router getUserConfirmation={getConfirmation}>
@@ -42,5 +42,5 @@ const routerMap = () => (
       <Route exact path="/home" component={Home} />
     </div>
   </Router>
-);
-export default routerMap;
+)
+export default routerMap

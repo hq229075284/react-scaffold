@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Button, Icon } from 'antd';
+import React, { Component } from 'react'
+import { Button, Icon } from 'antd'
 
 export default class test extends Component {
   render() {
@@ -7,6 +7,6 @@ export default class test extends Component {
       <div>
         <Button type="primary"><Icon type="down-square" />test</Button>
       </div>
-    );
+    )
   }
 }

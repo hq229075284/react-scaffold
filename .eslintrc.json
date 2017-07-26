@@ -45,6 +45,7 @@
     "no-underscore-dangle":[0],
     "react/prefer-stateless-function":[1],
     "import/no-webpack-loader-syntax":[1],
-    "import/no-dynamic-require":[1]
+    "import/no-dynamic-require":[1],
+    "semi": ["error", "never"]
   }
 }

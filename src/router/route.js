@@ -1,31 +1,31 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
 import {
   Route,
   withRouter,
   Redirect,
-} from 'react-router-dom';
+} from 'react-router-dom'
 
-const redirectUrl = '/';
+const redirectUrl = '/'
 
 const _filter = (...rest) => {
-  console.info(rest);
-  return true;
-};
+  console.info(rest)
+  return true
+}
 
 const route = ({ component: Component, ...rest }) => {
-  console.log(rest);
+  console.log(rest)
   return (<Route
     {...rest}
     render={
       (props) => {
-        console.log('currentUrl:', props.match.url);
+        console.log('currentUrl:', props.match.url)
         // console.log(Component);
-        return _filter({ ...rest, ...props }) ? <Component {...props} /> : <Redirect to={redirectUrl} />;
+        return _filter({ ...rest, ...props }) ? <Component {...props} /> : <Redirect to={redirectUrl} />
       }
     }
-  />);
-};
+  />)
+}
 
 // export default route;
 // export default connect(
@@ -33,5 +33,5 @@ const route = ({ component: Component, ...rest }) => {
 // )(route);
 export default withRouter(connect(
   state => ({ config: state.config }),
-)(route));
+)(route))
 

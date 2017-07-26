@@ -7,26 +7,26 @@
 
  // 记录日志
 const logger = store => next => (action) => {
-  console.log('dispatching', action);
-  const result = next(action);
-  console.log('next state', store.getState());
-  return result;
-};
+  console.log('dispatching', action)
+  const result = next(action)
+  console.log('next state', store.getState())
+  return result
+}
 
 // 崩溃报告
 const crashReporter = store => next => (action) => {
   try {
-    return next(action);
+    return next(action)
   } catch (err) {
-    console.error('Caught an exception!', err);
+    console.error('Caught an exception!', err)
     Raven.captureException(err, {
       extra: {
         action,
         state: store.getState(),
       },
-    });
-    throw err;
+    })
+    throw err
   }
-};
+}
 
-export { logger, crashReporter };
+export { logger, crashReporter }

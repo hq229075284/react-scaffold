@@ -88,6 +88,8 @@ var webpackConfig = {
       utils: path.join(__dirname, '../src/utils'),
       reduxs: path.join(__dirname, '../src/reduxs'),
       pages: path.join(__dirname, '../src/pages'),
+      '@routerView': path.join(__dirname, '../src/pages/routerView'),
+      '@router': path.join(__dirname, '../src/router'),
     }
   }
 };
