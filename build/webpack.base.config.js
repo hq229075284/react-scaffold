@@ -43,7 +43,7 @@ var webpackConfig = {
         ]
       }, {
         test: /\.less$/,
-        exclude: /(node_modules|bower_components)/,
+        // exclude: /(node_modules|bower_components)/,
         use: [
           {
             loader: 'style-loader',
