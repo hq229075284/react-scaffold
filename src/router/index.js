@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {
   HashRouter as Router,
   // Route,
+  // Prompt,
 } from 'react-router-dom'
 import Route from './route'
 import Bundle from './bundle'
@@ -24,23 +25,37 @@ const testloader = require('bundle-loader?lazy&name=test!@routerView/test')
 
 const asyncTest = asyncLoader(testloader)
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
-
-const getConfirmation = (message, callback) => {
-  const allowTransition = window.confirm(message)
-  callback(allowTransition)
+const Home = (props) => {
+  console.log(props)
+  return (
+    <div>
+      <h2>Home</h2>
+    </div>)
 }
 
-const routerMap = () => (
-  <Router getUserConfirmation={getConfirmation}>
-    <div>
-      <Route exact path="/test" component={asyncTest} />
-      <Route exact path="/home" component={Home} />
-    </div>
-  </Router>
-)
+
+class routerMap extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+    this.getConfirmation = this.getConfirmation.bind(this)
+  }
+  getConfirmation(message, callback) {
+    let allowTransition = true
+    if (message) {
+      allowTransition = window.confirm(message)
+    }
+    callback(allowTransition)
+  }
+  render() {
+    return (
+      <Router getUserConfirmation={this.getConfirmation} >
+        <div>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/test" component={asyncTest} />
+        </div>
+      </Router>
+    )
+  }
+}
 export default routerMap
